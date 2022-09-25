@@ -1,0 +1,1 @@
+console.log("Completed in " + (new Date().getSeconds() - timeStart) + " second");

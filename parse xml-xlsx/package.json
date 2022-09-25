@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "@google-cloud/local-auth": "^2.1.0",
+    "fs": "^0.0.1-security",
+    "googleapis": "^105.0.0",
+    "xlsx-populate": "^1.21.0",
+    "xml2js": "^0.4.23"
+  }
+}
