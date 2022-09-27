@@ -1,3 +1,4 @@
-const array = [1, 2]
+const url = 'https://www.online-kassy.ru';
 
-console.log(typeof array[3])
+console.log(url.length)
+console.log(url.slice(0, 27))
