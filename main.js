@@ -62,7 +62,6 @@ function startParser(delay) {
             });
             async function gtUpdateLogs(cl) {
                 const date = new Date();
-                const logs = [];
                 logs.push([String(`${date.getHours()}:${date.getMinutes()}:${date.getSeconds()} ${date.getDay()}.${date.getMonth()}.${date.getFullYear()} - ${log}`)]);
                 const gsapi = google.sheets({version: "v4",auth: cl});
                 const updateOptions = {
