@@ -50,7 +50,7 @@ function startParser(delay) {
     var logs = [];
     setInterval(() => {
         // обновление логов
-        function getDataTableLogs(logs) {
+        function getDataTableLogs(log) {
             client.authorize(function(err) {
                 if (err) {
                     console.log(err);
@@ -62,7 +62,8 @@ function startParser(delay) {
             });
             async function gtUpdateLogs(cl) {
                 const date = new Date();
-                logs.push([String(`${date.getHours()}:${date.getMinutes()}:${date.getSeconds()} ${date.getDay()}.${date.getMonth()}.${date.getFullYear()} - Table data updated ✅`)]);
+                const logs = [];
+                logs.push([String(`${date.getHours()}:${date.getMinutes()}:${date.getSeconds()} ${date.getDay()}.${date.getMonth()}.${date.getFullYear()} - ${log}`)]);
                 const gsapi = google.sheets({version: "v4",auth: cl});
                 const updateOptions = {
                     spreadsheetId: "1GJsO3s4xrxhgKmc8pHXTtJAIBRzGBLG6Wu28NTfITHo",
@@ -98,7 +99,7 @@ function startParser(delay) {
                 let data = await gsapi.spreadsheets.values.update(updateOptions);
                 let dataArray = data.data.values;
                 console.log("Table data updated ✅");
-                getDataTableLogs(logs);
+                getDataTableLogs("Table data updated ✅");
             }
         }
 
